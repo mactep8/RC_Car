@@ -34,6 +34,8 @@ namespace CarWin
                 SerialProtocol.SPort = serialPort;
                 SerialProtocol.onChannels += new SerialProtocol.onCmdChannels(SerialProtocol_onChannels);
                 SerialProtocol.onCalibrationView += new SerialProtocol.onCmdChannels(SerialProtocol_onCalibrationView);
+
+                btnLoad_Click(null, null);
             }
             else
             {
@@ -77,7 +79,7 @@ namespace CarWin
             }
         }
 
-        private void btnLoadCalibration_Click(object sender, EventArgs e)
+        private void btnLoad_Click(object sender, EventArgs e)
         {
             SerialProtocol.LoadCalibrationRequest();
         }
