@@ -1,5 +1,3 @@
-#include <EEPROM.h>
-
 void SaveCalibration()
 {
   //min - center - max
@@ -191,6 +189,8 @@ boolean InputString(char * aStr)
 void LoadModelInfo()
 {
   SelectedModel = MenuItems[CurrentItemID].LineID;
+  if (EEPROM.read(12) != SelectedModel)
+    EEPROM.write(12, SelectedModel);
   uint16_t model_offset = (SelectedModel + 1) * 100;
   for(int i=0;i<12;i++)
   MenuItems[0].menuname[i] = MenuItems[CurrentItemID].menuname[i];
@@ -276,7 +276,7 @@ void LoadModelList(byte pParentID)
     for (byte j=0;j<12;j++)
     {
       MenuItems[i].menuname[j] = EEPROM.read(model_offset + j);
-      if (MenuItems[i].menuname[j]>90 || MenuItems[i].menuname[j] < 32) MenuItems[i].menuname[j]='.';
+      if (MenuItems[i].menuname[j]>127 || MenuItems[i].menuname[j] < 32) MenuItems[i].menuname[j]='.';
     }
       
 //    MenuItems[i].menuname = "...";//String(str);

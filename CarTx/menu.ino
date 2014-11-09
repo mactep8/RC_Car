@@ -56,6 +56,13 @@ void DrawChNum()
   MyScreen.text(str, 100, 62);
 }
 
+void DrawTextI(uint16_t x, uint16_t y, uint16_t val)
+{
+  char str[6] = "";
+  String(val).toCharArray(str, 6);
+  MyScreen.text(str, x, y);
+}
+
 void DrawExp()
 {
   char str[4] = "";

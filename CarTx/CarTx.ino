@@ -1,5 +1,6 @@
 #include <TFT.h>  // Arduino LCD library
 #include <SPI.h>
+#include <EEPROM.h>
 #include "config.h"
 #include "Model.h"
 
@@ -21,6 +22,13 @@ void setup()
   rfm_start();
   UpdateScreen(0);
   Thelemetry.tssi = 0;
+  
+  byte SelectedModel = EEPROM.read(12);
+  if (SelectedModel<8)
+  {
+    CurrentItemID = SelectedModel + MENU_ITEMS_COUNT - 8;
+    LoadModelInfo();
+  }
 }
 
 void loop()

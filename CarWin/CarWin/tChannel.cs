@@ -17,4 +17,13 @@ namespace CarWin
         public int MinVal;
         public int chValue;
     }
+
+    public class tModel
+    {
+        public string ModelName;
+        public byte[] Addr = new byte[4];
+        public byte MatchByte;
+        public byte dFix;
+        public tChannel[] Channel = new tChannel[2];
+    }
 }
