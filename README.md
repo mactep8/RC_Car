@@ -1,5 +1,7 @@
 RC_Car
+
 ======
+Radio Control System 2+4 channels 433MHz
 
 Проект системы радиоуправления для автомоделей на базе приемного модуля OrangeRx OpenLRS 433
 *  433 МГц
