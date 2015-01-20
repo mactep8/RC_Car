@@ -20,7 +20,7 @@ void setup()
   LoadMenu();
   SetModelDefaults();
   rfm_start();
-  UpdateScreen(0);
+  
   Thelemetry.tssi = 0;
   
   byte SelectedModel = EEPROM.read(12);
@@ -29,6 +29,7 @@ void setup()
     CurrentItemID = SelectedModel + MENU_ITEMS_COUNT - 8;
     LoadModelInfo();
   }
+  else UpdateScreen(0);
 }
 
 void loop()
